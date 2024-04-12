@@ -23,8 +23,10 @@ const MovieCast = () => {
                 }
                 alt={cast.name}
               />
-              <p>{cast.name}</p>
-              <p>{`Character: ${cast.character}`}</p>
+              <div>
+                <p>{cast.name}</p>
+                <p>{`Character: ${cast.character}`}</p>
+              </div>
             </li>
           ))}
       </ul>

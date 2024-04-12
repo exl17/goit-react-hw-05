@@ -1,18 +1,16 @@
-import React from 'react';
-import { ColorRing } from "react-loader-spinner";
-const Loader = () => {
+import {Oval} from 'react-loader-spinner';
+
+const LoaderComponent = () => {
   return (
     <div>
-      <ColorRing
-        visible={true}
-        height="80"
-        width="80"
-        ariaLabel="color-ring-loading"
-        wrapperStyle={{}}
-        wrapperClass="color-ring-wrapper"
-        colors={['#ffc7c4', '#e1eae1', '#bdc2bd', '#97e75f', '#f5ebed']}
+      <Oval
+        type="ThreeDots" 
+        color="#00BFFF"
+        height={100}
+        width={100}
       />
     </div>
   );
 };
-export default Loader;
+
+export default LoaderComponent;

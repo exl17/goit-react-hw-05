@@ -10,7 +10,6 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* <h2>Trending today</h2> */}
       {loading && <Loader />}
       {error && <ErrorMessage message={error} />}
       {movies !== null && <MovieList movies={movies} />}

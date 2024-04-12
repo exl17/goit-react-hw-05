@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchTrendingMovies, searchMoviesByName } from "../services/api";
 import { useSearchParams } from "react-router-dom";
 
@@ -6,7 +6,6 @@ export const useMovieSearch = ({ isMoviesPage = false }) => {
   const [movies, setMovies] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  // const [query, setQuery] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query");
 
@@ -25,7 +24,7 @@ export const useMovieSearch = ({ isMoviesPage = false }) => {
       }
     }
     feachData();
-  }, []);
+  }, [isMoviesPage]);
 
   useEffect(() => {
     if (!query) return;
@@ -44,7 +43,6 @@ export const useMovieSearch = ({ isMoviesPage = false }) => {
   }, [query]);
 
   const onSetSearchQuery = (searchTerm) => {
-    // setQuery(searchTerm);
     setSearchParams({ query: searchTerm });
   };
   return { movies, loading, error, onSetSearchQuery };

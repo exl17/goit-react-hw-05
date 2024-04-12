@@ -1,16 +1,19 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
-import Navigation from "./components/Navigation/Navigation";
 
-const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
-const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
-const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
-const MovieDetailsPage = lazy(() => import("./pages/MovieDetailsPage/MovieDetailsPage"));
+
+import Navigation from "./components/Navigation/Navigation";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const MoviesPage = lazy(() => import("./pages/MoviesPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const MovieDetailsPage = lazy(() =>
+  import("./pages/MovieDetailsPage/MovieDetailsPage")
+);
 
 function App() {
   return (
-    <>
+    <div>
       <header>
         <Navigation />
       </header>
@@ -24,7 +27,7 @@ function App() {
           </Routes>
         </Suspense>
       </main>
-    </>
+    </div>
   );
 }
 

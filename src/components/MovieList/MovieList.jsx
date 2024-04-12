@@ -1,13 +1,12 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import css from "./MovieList.module.css";
+import PropTypes from 'prop-types';
+import { Link, useLocation } from 'react-router-dom';
 
 const MovieList = ({ movies }) => {
   const location = useLocation();
   const locationForP = useLocation();
   return (
     <ul>
-      {locationForP.pathname === "/" && <h2>Trending today</h2>}
+      {locationForP.pathname === '/' && <h2>Trending today</h2>}
       {Array.isArray(movies) &&
         movies.map((movie) => {
           return (
@@ -20,6 +19,15 @@ const MovieList = ({ movies }) => {
         })}
     </ul>
   );
+};
+
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default MovieList;

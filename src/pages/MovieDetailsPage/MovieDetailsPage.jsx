@@ -1,22 +1,19 @@
+import React, { useRef, Suspense } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
-// import MovieReviews from "../../components/MovieReviews/MovieReviews";
-// import MovieCast from "../../components/MovieCast/MovieCast";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.jsx";
 import Loader from "../../components/Loader/Loader";
 import css from "./MovieDetailsPage.module.css";
 import { useDetailsSearch } from "../../hooks/useDetailsSearch";
-import { useRef } from "react";
-import { lazy } from "react";
-import { Suspense } from "react";
-const MovieReviews = lazy(() =>
+
+
+const MovieReviews = React.lazy(() =>
   import("../../components/MovieReviews/MovieReviews")
 );
-const MovieCast = lazy(() => import("../../components/MovieCast/MovieCast"));
+const MovieCast = React.lazy(() => import("../../components/MovieCast/MovieCast"));
 
 const MovieDetailsPage = () => {
   const { loading, error, movieData, imageUrl, defaultImg } =
     useDetailsSearch();
-
   const location = useLocation();
   const backLinkRef = useRef(location.state ?? "/");
 
